@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Load the JS file -->
+    <script src="https://cdn.jsdelivr.net/npm/@gitgraph/js"></script>
+    <script src="style.js"></script>
+</head>
+<body>
+    <!-- DOM element in which we'll mount our graph -->
+    <div id="graph-container"></div>
+
+    <script>
+        // Get the graph container HTML element.
+        const graphContainer = document.getElementById("graph-container");
+
+        options.template.commit.message.displayHash = true;
+        options.template.branch.label.display = false;
+        // Instantiate the graph.
+        const gitgraph = GitgraphJS.createGitgraph(graphContainer, options);
+
+        const master = gitgraph.branch("master")
+    
+        master.commit({
+            subject: "Commit A",
+        });
+
+        master.commit({
+            subject: "Commit B",
+        });
+
+        master.commit({
+            subject: "Commit C",
+        });
+
+        master.commit({
+            subject: "Commit D",
+        });
+
+    </script>
+</body>
+</html>

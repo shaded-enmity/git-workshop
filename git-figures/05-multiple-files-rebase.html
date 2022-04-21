@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Load the JS file -->
+    <script src="https://cdn.jsdelivr.net/npm/@gitgraph/js"></script>
+    <script src="style.js"></script>
+</head>
+<body>
+    <!-- DOM element in which we'll mount our graph -->
+    <div id="graph-container"></div>
+
+    <script>
+        // Get the graph container HTML element.
+        const graphContainer = document.getElementById("graph-container");
+
+        // Instantiate the graph.
+        const gitgraph = GitgraphJS.createGitgraph(graphContainer, options);
+
+        const master = gitgraph.branch("master")
+    
+        master.commit({
+            subject: "Handle successive whitespaces when counting words",
+            author: "Viktor Malik",
+        });
+        
+        const multiple_files = gitgraph.branch("multiple-files")
+    
+        multiple_files.commit({
+            subject: "Enable multiple counters and use new output format",
+            author: "Petr Stodulka",
+        });
+        
+        multiple_files.commit({
+            subject: "Refactoring: process the file inside process_file()",
+            author: "Petr Stodulka",
+        });
+        
+        multiple_files.commit({
+            subject: "Count only regular files",
+            author: "Petr Stodulka",
+        });
+        
+        multiple_files.commit({
+            subject: "Support multiple input files",
+            author: "Viktor Malik",
+        });
+        
+    </script>
+</body>
+</html>
